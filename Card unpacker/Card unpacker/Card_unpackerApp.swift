@@ -6,28 +6,26 @@
 //
 
 import SwiftUI
-import FirebaseCore
-
-
-class AppDelegate: NSObject, UIApplicationDelegate {
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-    FirebaseApp.configure()
-
-    return true
-  }
-}
-
-
-
+import Firebase
 
 @main
 struct Card_unpackerApp: App {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
+    var model_Auth: Model_Auth
+        
+        init() {
+           FirebaseApp.configure()
+            model_Auth = Model_Auth()
         }
-    }
+
+        var body: some Scene {
+                    WindowGroup {
+                        if model_Auth.auth.currentUser != nil {
+                            ContentView().environmentObject(model_Auth)
+                        }else{
+                            View_Login().environmentObject(model_Auth)
+                        }
+                    }
+                }
+    
 }
