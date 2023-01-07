@@ -8,12 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var model_Auth: Model_Auth
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Spacer().frame(height: 20)
+            
+            NavigationLink(destination: View_Register().environmentObject(model_Auth)) { Text("Sign up") }.background(RoundedRectangle(cornerRadius: 50)
+            .foregroundColor(colorScheme == .dark ? Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255) : Color(red: 220 / 255, green: 220 / 255, blue: 220 / 255)))
+            
+            Spacer().frame(height: 40)
+            
+            NavigationLink(destination: View_Register().environmentObject(model_Auth)) { Text("Sign up") }.background(RoundedRectangle(cornerRadius: 50)
+            .foregroundColor(colorScheme == .dark ? Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255) : Color(red: 220 / 255, green: 220 / 255, blue: 220 / 255)))
+            
+            Spacer().frame(height: 40)
+            
+            NavigationLink(destination: View_Register().environmentObject(model_Auth)) { Text("Sign up") }.background(RoundedRectangle(cornerRadius: 50)
+            .foregroundColor(colorScheme == .dark ? Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255) : Color(red: 220 / 255, green: 220 / 255, blue: 220 / 255)))
         }
         .padding()
     }

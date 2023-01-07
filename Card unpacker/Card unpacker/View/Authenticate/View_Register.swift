@@ -18,10 +18,8 @@ struct View_Register: View {
     @FocusState var isTextInputPasswordFocus : Bool
     
     @State var email = ""
-    @State var userName = ""
     @State var password = ""
     @State var wrongCredentials = false
-    @State var noNames = false
     @State var showNextView = false
     @State var showLoginView = false
     
@@ -29,26 +27,35 @@ struct View_Register: View {
         NavigationView{
             VStack {
                 ScrollView{
+                    
                     Group {
                         Spacer().frame(height: 25)
                         HStack{ Text("Card opening simulator").foregroundColor(.blue).font(.largeTitle).padding() }
                         Spacer().frame(height: 25)
                     }
+                    
                     Group{
-                        TextField("User name", text: $userName).focused($isTextInputUserNameFocus)
-                        TextField("Email", text: $email).focused($isTextInputEmailFocus)
-                        SecureField("Password", text: $password).focused($isTextInputPasswordFocus)
+                        TextField("Email:", text: $email).focused($isTextInputEmailFocus)
+                        SecureField("Password:", text: $password).focused($isTextInputPasswordFocus)
                     }.onTapGesture{}.padding().background(RoundedRectangle(cornerRadius: 50)
-                                            .foregroundColor(colorScheme == .dark ? Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255) : Color(red: 220 / 255, green: 220 / 255, blue: 220 / 255)))
+                        .foregroundColor(colorScheme == .dark ? Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255) : Color(red: 220 / 255, green: 220 / 255, blue: 220 / 255)))
+                    
                     Group{
                         Spacer().frame(height: 40)
-                        if wrongCredentials { Text("Email/password are not valid").padding().foregroundColor(.red) }
-                        if noNames { Text("Username cannot be empty").padding().foregroundColor(.red) }
-                        NavigationLink(destination: ContentView().environmentObject(model_Auth)) { Text("Sign in") }
-                        Button(action: { signUp() }) { Text("Create account") }
+                        
+                        if (wrongCredentials) { Text("Email/password are not valid").padding().foregroundColor(.red) }
+                        NavigationLink(destination: ContentView().environmentObject(model_Auth), isActive: $showNextView){}
+                        Button(action: { signUp() }) { Text("Create account") }.background(RoundedRectangle(cornerRadius: 50)
+                            .foregroundColor(colorScheme == .dark ? Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255) : Color(red: 220 / 255, green: 220 / 255, blue: 220 / 255)))
+                        
+                        
                         Spacer().frame(height: 40)
+                        
                         NavigationLink(destination: View_Login().environmentObject(model_Auth), isActive: $showLoginView){}
-                        Button(action: { showLoginView = true }) { Text("Sign in") }
+                        Button(action: { showLoginView = true }) { Text("Sign in") }.background(RoundedRectangle(cornerRadius: 50)
+                            .foregroundColor(colorScheme == .dark ? Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255) : Color(red: 220 / 255, green: 220 / 255, blue: 220 / 255)))
+                        
+                        
                         Spacer()
                     }
                 }
@@ -64,25 +71,23 @@ struct View_Register: View {
     
     
     func signUp() {
-        if !userName.isEmpty {
-            model_Auth.signUp(userName: userName, email: email, password: password){ result in
-                if result {
-                    wrongCredentials = false
-                    showNextView = true
-                } else {
-                    showNextView = false
-                    wrongCredentials = true
-                }
+        model_Auth.signUp(email: email, password: password){ result in
+            if (result) {
+                wrongCredentials = false
+                showNextView = true
+            } else {
+                showNextView = false
+                wrongCredentials = true
             }
-        } else { noNames = true }
+        }
     }
-}
-
-struct View_Register_Previews: PreviewProvider {
-    static var previews: some View {
-        View_Register()
-            .preferredColorScheme(.light)
-        View_Register()
-            .preferredColorScheme(.dark)
+    
+    struct View_Register_Previews: PreviewProvider {
+        static var previews: some View {
+            View_Register()
+                .preferredColorScheme(.light)
+            View_Register()
+                .preferredColorScheme(.dark)
+        }
     }
 }

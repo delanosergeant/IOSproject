@@ -35,25 +35,33 @@ struct View_Login: View {
             VStack {
                 ScrollView{
                     Group{
-                        Spacer().frame(height: 20)
-                        HStack{ Text("ChatBuddy").padding().foregroundColor(.orange).font(.largeTitle) }
-                        Spacer().frame(height: 30)
+                        Spacer().frame(height: 25)
+                        HStack{ Text("Card opening simulator").foregroundColor(.blue).font(.largeTitle).padding() }
+                        Spacer().frame(height: 25)
                     }
                     
                     Group{
-                        TextField("Email", text: $email).focused($isTextInputEmailFocus)
-                        SecureField("Password", text: $password).focused($isTextInputPasswordFocus)
+                        TextField("Email:", text: $email).focused($isTextInputEmailFocus)
+                        SecureField("Password:", text: $password).focused($isTextInputPasswordFocus)
                     }.onTapGesture {}
                     .padding().background(RoundedRectangle(cornerRadius: 50)
-                                            .foregroundColor(colorScheme == .dark ? Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255) : Color(red: 220 / 255, green: 220 / 255, blue: 220 / 255)))
+                    .foregroundColor(colorScheme == .dark ? Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255) : Color(red: 220 / 255, green: 220 / 255, blue: 220 / 255)))
                     
                     Group{
+                        
                         Spacer().frame(height: 20)
+                        
                         if wrongCredentials { Text("Email/password combination is incorrect").padding().foregroundColor(.red) }
-                        NavigationLink(destination: ContentView().environmentObject(model_Auth)) { Text("Sign in") }
-                        Button(action: { login() }) { Text("Sign in") }.padding(.top)
+                        NavigationLink(destination: ContentView().environmentObject(model_Auth), isActive: $showNextView){}
+                        Button(action: { login() }) { Text("Sign in") }.padding(.top).background(RoundedRectangle(cornerRadius: 50)
+                        .foregroundColor(colorScheme == .dark ? Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255) : Color(red: 220 / 255, green: 220 / 255, blue: 220 / 255)))
+                        
+                        
                         Spacer().frame(height: 40)
-                        NavigationLink(destination: View_Register().environmentObject(model_Auth)) { Text("Sign up") }
+                        
+                        NavigationLink(destination: View_Register().environmentObject(model_Auth)) { Text("Sign up") }.background(RoundedRectangle(cornerRadius: 50)
+                        .foregroundColor(colorScheme == .dark ? Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255) : Color(red: 220 / 255, green: 220 / 255, blue: 220 / 255)))
+                        
                         Spacer()
                     }
                 }

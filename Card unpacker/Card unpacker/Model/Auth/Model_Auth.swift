@@ -34,7 +34,7 @@ class Model_Auth: ObservableObject{
         }
    }
     
-    func signUp(userName: String, email: String, password: String, completion: @escaping (Bool)-> Void) {
+   func signUp(email: String, password: String, completion: @escaping (Bool)-> Void) {
             Auth.auth().createUser(withEmail: email, password: password) {[weak self] result, error in
                 guard result != nil, error == nil else{
                     completion(false)
@@ -43,15 +43,10 @@ class Model_Auth: ObservableObject{
                 
                 DispatchQueue.main.async {
                     self?.loggedIn = true
-                    let params: [String: Any] = ["email": email, "userName": userName, "id": Auth.auth().currentUser!.uid]
+                    let params: [String: Any] = ["email": email, "id": Auth.auth().currentUser!.uid]
                     self?.user = Auth.auth().currentUser!
-                    self?.dbController.writeData(endpoint: "users", parameters: params)
-                    self?.db.Username = userName
                     completion(self!.loggedIn)
                 }
             }
-            
         }
 }
-
-
