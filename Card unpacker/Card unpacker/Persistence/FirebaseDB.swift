@@ -60,17 +60,95 @@ class FirebaseDB: ObservableObject{
         return card
     }
     
-    static func populate(){
+    func getOnePack(set:String) -> Array<Card>{
+        var cards: Array<Card> = []
+        let random = Int.random(in: 1...100)
+        var rare:String = "nil"
+        var random: Int = 0
+        var count:Int = 0
         
-        for index in 2...15
+        switch(random)
+        {
+            //RRR
+            case 1...10:
+                rare = "RRR"
+                random = Int.random(in: 1...10)
+                break
+            //RR
+            case 11...40:
+                rare = "RR"
+                random = Int.random(in: 1...30)
+                break
+            //R
+            default:
+                rare = "R"
+                random = Int.random(in: 1...65)
+                break
+        }
+        
+        let connC = Firestore.firestore().collection("cardlist").document(set).collection("C")
+        let connR = Firestore.firestore().collection("cardlist").document(set).collection(rare)
+        
+        
+        
+            connC.getDocuments{ (QuerySnapshot, error) in
+                if let snapshotDocuments = QuerySnapshot?.documents{
+                    for document in snapshotDocuments{
+                        do{
+                            if(count < 6){
+                                let card = try document.data(as: Card.self)
+                                    cards.append(card)
+                                print(card.name)
+                            }
+                        } catch let error as NSError{
+                            print("error: \(error)")
+                        }
+                    }
+                }
+            }
+        
+        
+        
+        cards.shuffle()
+        return cards
+    }
+    
+    func getCards(set:String)-> Array<Card>{
+        var cards: Array<Card> = []
+        
+        return cards
+    }
+    
+    /*static func populate(){
+        
+        for index in 1...10
         {
             let card:Card = Card(name: "temp" + String(index), grade: Int.random(in: 0...3), text: "temp" + String(index), nation: "temp" + String(index), rarity: "temp" + String(index))
             do{
-                try Firestore.firestore().collection("cardlist").document("DBT-01").collection(String(index)).document("RR").setData(from: card)
+                try Firestore.firestore().collection("cardlist").document("DBT-01").collection("RRR").document(String(index)).setData(from: card)
             }catch let error{
                 print( "Error with writing card to firestore: \(error)")
             }
         }
         
-    }
+        for index in 1...30
+        {
+            let card:Card = Card(name: "temp" + String(index), grade: Int.random(in: 0...3), text: "temp" + String(index), nation: "temp" + String(index), rarity: "temp" + String(index))
+            do{
+                try Firestore.firestore().collection("cardlist").document("DBT-01").collection("R").document(String(index)).setData(from: card)
+            }catch let error{
+                print( "Error with writing card to firestore: \(error)")
+            }
+        }
+        
+        for index in 1...65
+        {
+            let card:Card = Card(name: "temp" + String(index), grade: Int.random(in: 0...3), text: "temp" + String(index), nation: "temp" + String(index), rarity: "temp" + String(index))
+            do{
+                try Firestore.firestore().collection("cardlist").document("DBT-01").collection("C").document(String(index)).setData(from: card)
+            }catch let error{
+                print( "Error with writing card to firestore: \(error)")
+            }
+        }
+    }*/
 }

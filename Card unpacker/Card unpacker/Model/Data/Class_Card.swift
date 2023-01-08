@@ -11,11 +11,11 @@ import FirebaseFirestoreSwift
 
 class Card : Codable{
     
-    private var name: String
-    private var grade: Int
-    private var text: String
-    private var nation: String
-    private var rarity: String
+    private(set) var name: String
+    private(set) var grade: Int
+    private(set) var text: String
+    private(set) var nation: String
+    private(set) var rarity: String
     
     init(name: String, grade: Int, text : String, nation: String, rarity: String){
         self.name = name

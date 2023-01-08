@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F01054EC296B12540003080A /* Struct_Cardview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01054EB296B12540003080A /* Struct_Cardview.swift */; };
+		F01054EE296B15070003080A /* struct_PackOpening.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01054ED296B15070003080A /* struct_PackOpening.swift */; };
+		F01054F0296B2C5A0003080A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01054EF296B2C5A0003080A /* ViewModel.swift */; };
 		F09458F0296753630049B934 /* Card_unpackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09458EF296753630049B934 /* Card_unpackerApp.swift */; };
 		F09458F2296753630049B934 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09458F1296753630049B934 /* ContentView.swift */; };
 		F09458F42967536B0049B934 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F09458F32967536B0049B934 /* Assets.xcassets */; };
@@ -70,6 +73,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F01054EB296B12540003080A /* Struct_Cardview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Struct_Cardview.swift; sourceTree = "<group>"; };
+		F01054ED296B15070003080A /* struct_PackOpening.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = struct_PackOpening.swift; sourceTree = "<group>"; };
+		F01054EF296B2C5A0003080A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		F09458EC296753620049B934 /* Card unpacker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Card unpacker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F09458EF296753630049B934 /* Card_unpackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card_unpackerApp.swift; sourceTree = "<group>"; };
 		F09458F1296753630049B934 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -226,6 +232,7 @@
 		F0A0CA482968A8A000FADDDF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F01054EF296B2C5A0003080A /* ViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -243,6 +250,8 @@
 			children = (
 				F0A0CA5C296A106500FADDDF /* Class_Card.swift */,
 				F0A0CA5E296A2DE500FADDDF /* Class_Pack.swift */,
+				F01054EB296B12540003080A /* Struct_Cardview.swift */,
+				F01054ED296B15070003080A /* struct_PackOpening.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -453,8 +462,11 @@
 			files = (
 				F0A0CA5D296A106500FADDDF /* Class_Card.swift in Sources */,
 				F09458F2296753630049B934 /* ContentView.swift in Sources */,
+				F01054EE296B15070003080A /* struct_PackOpening.swift in Sources */,
 				F0A0CA4C2968AC0900FADDDF /* Model_Auth.swift in Sources */,
+				F01054EC296B12540003080A /* Struct_Cardview.swift in Sources */,
 				F0A0CA59296A0E4900FADDDF /* View_Card_Overview.swift in Sources */,
+				F01054F0296B2C5A0003080A /* ViewModel.swift in Sources */,
 				F0A0CA4F2968AD8400FADDDF /* FirebaseDB.swift in Sources */,
 				F0A0CA572968B3A300FADDDF /* View_Register.swift in Sources */,
 				F0A0CA5B296A102800FADDDF /* View_Card_Opener.swift in Sources */,
