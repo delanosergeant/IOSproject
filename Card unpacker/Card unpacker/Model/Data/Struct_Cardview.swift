@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct CardView<cardContent>: Identifiable{
+struct CardView<CardContent>: Identifiable{
     
-    let id:UUID
-    let cards: cardContent
+    let id: UUID
+    let cards: CardContent
     
     var isFaceUp:Bool
     
-    init(id: UUID = UUID(), isFaceUp: Bool, cards: cardContent){
+    init(id: UUID = UUID(), isFaceUp: Bool, cards: CardContent){
         self.id = id
         self.cards = cards
         self.isFaceUp = isFaceUp

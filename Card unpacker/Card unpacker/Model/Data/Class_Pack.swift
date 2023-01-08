@@ -19,11 +19,8 @@ class Pack{
         self.CardSet = CardSet
     }
     
-    func randomize(){
-        
-        let rarities = ["R", "RR", "RRR"]
-        
-        
-        Cardlist.append(db.getRandomCard(rarity: rarities.randomElement()!,set: CardSet))
+    func generatePack() -> Array<Card>{
+        Cardlist = db.getOnePack(set: CardSet)
+        return Cardlist
     }
 }

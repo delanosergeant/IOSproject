@@ -43,14 +43,14 @@ struct View_Register: View {
                         
                         if (wrongCredentials) { Text("Email/password are not valid").padding().foregroundColor(.red) }
                         NavigationLink(destination: ContentView().environmentObject(model_Auth), isActive: $showNextView){}
-                        Button(action: { signUp() }) { Text("Create account") }.background(RoundedRectangle(cornerRadius: 50)
+                        Button(action: { signUp() }) { Text("Create account") }.padding().background(RoundedRectangle(cornerRadius: 50)
                             .foregroundColor(colorScheme == .dark ? Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255) : Color(red: 220 / 255, green: 220 / 255, blue: 220 / 255)))
                         
                         
-                        Spacer().frame(height: 40)
+                        Spacer().frame(height: 20)
                         
                         NavigationLink(destination: View_Login().environmentObject(model_Auth), isActive: $showLoginView){}
-                        Button(action: { showLoginView = true }) { Text("Sign in") }.background(RoundedRectangle(cornerRadius: 50)
+                        Button(action: { showLoginView = true }) { Text("Sign in") }.padding().background(RoundedRectangle(cornerRadius: 50)
                             .foregroundColor(colorScheme == .dark ? Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255) : Color(red: 220 / 255, green: 220 / 255, blue: 220 / 255)))
                         
                         Spacer()

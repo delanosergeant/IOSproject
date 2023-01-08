@@ -9,7 +9,7 @@ import Foundation
 
 struct PackOpening  {
     
-    private(set) var cardList: [CardView<Card>] = []
+    var cardList: [CardView<Card>] = []
     
     init(cardContent: Array<Card>){
         for item in cardContent{

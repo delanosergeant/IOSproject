@@ -51,6 +51,7 @@ class FirebaseDB: ObservableObject{
             switch result {
                 case .success(let success):
                     card = success
+                    print(card.name + " - " + rarity)
                 case .failure(let error):
                     // A `City` value could not be initialized from the DocumentSnapshot.
                     print("Error decoding card: \(error)")
@@ -86,26 +87,13 @@ class FirebaseDB: ObservableObject{
                 break
         }
         
-        let connC = Firestore.firestore().collection("cardlist").document(set).collection("C")
-        let connR = Firestore.firestore().collection("cardlist").document(set).collection(rare)
+        //one pack holds 5 commons and 1 rare
+        for _ in 1...5
+        {
+            cards.append(self.getRandomCard(rarity: "C", set: set))
+        }
         
-        
-        
-            connC.getDocuments{ (QuerySnapshot, error) in
-                if let snapshotDocuments = QuerySnapshot?.documents{
-                    for document in snapshotDocuments{
-                        do{
-                            if(count < 6){
-                                let card = try document.data(as: Card.self)
-                                    cards.append(card)
-                                print(card.name)
-                            }
-                        } catch let error as NSError{
-                            print("error: \(error)")
-                        }
-                    }
-                }
-            }
+        cards.append(self.getRandomCard(rarity: rare, set: set))
         
         cards.shuffle()
         return cards
@@ -113,6 +101,22 @@ class FirebaseDB: ObservableObject{
     
     func getCards(set:String)-> Array<Card>{
         var cards: Array<Card> = []
+        
+        let connC = Firestore.firestore().collection("cardlist").document(set).collection("C")
+        
+            connC.getDocuments{ (QuerySnapshot, error) in
+                if let snapshotDocuments = QuerySnapshot?.documents{
+                    for document in snapshotDocuments{
+                        do{
+                                let card = try document.data(as: Card.self)
+                                cards.append(card)
+                                print(card.name)
+                        } catch let error as NSError{
+                            print("error: \(error)")
+                        }
+                    }
+                }
+            }
         
         return cards
     }
