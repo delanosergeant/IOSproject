@@ -34,6 +34,8 @@ struct View_Card_Opener: View {
         .onAppear{
             Pack.generatePack(set: "DBT-01")
         }
+        .padding()
+        .navigationTitle("Pack opening")
        	
     }
     

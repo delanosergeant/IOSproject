@@ -18,11 +18,11 @@ struct ViewModifier_Card: ViewModifier, AnimatableModifier {
         let shape = RoundedRectangle(cornerRadius: 5)
         ZStack{
             if animateable < 90 {
-                shape.fill().foregroundColor(.black)
+                shape.fill().foregroundColor(.white)
                 shape.strokeBorder(lineWidth: 4)
             }
             else{
-                shape.fill().foregroundColor(.white)
+                shape.fill()
                 shape.strokeBorder(lineWidth: 1)
             }
         }
