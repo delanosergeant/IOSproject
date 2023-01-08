@@ -33,7 +33,6 @@ struct View_Login: View {
     var body: some View {
         NavigationView{
             VStack {
-                ScrollView{
                     Group{
                         Spacer().frame(height: 25)
                         HStack{ Text("Card opening simulator").foregroundColor(.blue).font(.largeTitle).padding() }
@@ -64,7 +63,7 @@ struct View_Login: View {
                         
                         Spacer()
                     }
-                }
+                
             }.onTapGesture {
                 if isTextInputEmailFocus {isTextInputEmailFocus = false}
                 if isTextInputPasswordFocus {isTextInputPasswordFocus = false }

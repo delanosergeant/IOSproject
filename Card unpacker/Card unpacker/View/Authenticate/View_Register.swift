@@ -26,11 +26,9 @@ struct View_Register: View {
     var body: some View {
         NavigationView{
             VStack {
-                ScrollView{
-                    
                     Group {
                         Spacer().frame(height: 25)
-                        HStack{ Text("Card opening simulator").foregroundColor(.blue).font(.largeTitle).padding() }
+                        HStack{ Text("Card opening simulator").foregroundColor(.blue).font(.Title).padding() }
                         Spacer().frame(height: 25)
                     }
                     
@@ -55,10 +53,9 @@ struct View_Register: View {
                         Button(action: { showLoginView = true }) { Text("Sign in") }.background(RoundedRectangle(cornerRadius: 50)
                             .foregroundColor(colorScheme == .dark ? Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255) : Color(red: 220 / 255, green: 220 / 255, blue: 220 / 255)))
                         
-                        
                         Spacer()
                     }
-                }
+                
             }.onTapGesture {
                 if isTextInputUserNameFocus { isTextInputUserNameFocus = false }
                 if isTextInputEmailFocus { isTextInputEmailFocus = false }

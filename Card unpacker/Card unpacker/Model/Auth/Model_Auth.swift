@@ -43,10 +43,11 @@ class Model_Auth: ObservableObject{
                 
                 DispatchQueue.main.async {
                     self?.loggedIn = true
-                    let params: [String: Any] = ["email": email, "id": Auth.auth().currentUser!.uid]
                     self?.user = Auth.auth().currentUser!
                     completion(self!.loggedIn)
                 }
             }
         }
+    
+   
 }
