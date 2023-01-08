@@ -59,4 +59,18 @@ class FirebaseDB: ObservableObject{
         
         return card
     }
+    
+    static func populate(){
+        
+        for index in 2...15
+        {
+            let card:Card = Card(name: "temp" + String(index), grade: Int.random(in: 0...3), text: "temp" + String(index), nation: "temp" + String(index), rarity: "temp" + String(index))
+            do{
+                try Firestore.firestore().collection("cardlist").document("DBT-01").collection(String(index)).document("RR").setData(from: card)
+            }catch let error{
+                print( "Error with writing card to firestore: \(error)")
+            }
+        }
+        
+    }
 }

@@ -28,7 +28,7 @@ struct View_Register: View {
             VStack {
                     Group {
                         Spacer().frame(height: 25)
-                        HStack{ Text("Card opening simulator").foregroundColor(.blue).font(.Title).padding() }
+                        HStack{ Text("Card opening simulator").foregroundColor(.blue).font(.title).padding() }
                         Spacer().frame(height: 25)
                     }
                     

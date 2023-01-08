@@ -35,7 +35,7 @@ struct View_Login: View {
             VStack {
                     Group{
                         Spacer().frame(height: 25)
-                        HStack{ Text("Card opening simulator").foregroundColor(.blue).font(.largeTitle).padding() }
+                        HStack{ Text("Card opening simulator").foregroundColor(.blue).font(.title).padding() }
                         Spacer().frame(height: 25)
                     }
                     
@@ -62,6 +62,10 @@ struct View_Login: View {
                         .foregroundColor(colorScheme == .dark ? Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255) : Color(red: 220 / 255, green: 220 / 255, blue: 220 / 255)))
                         
                         Spacer()
+                        
+                        Button(action: {populate() }){ Text("Populate") }.padding(.top).background(RoundedRectangle(cornerRadius: 50)
+                            .foregroundColor(colorScheme == .dark ? Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255) : Color(red: 220 / 255, green: 220 / 255, blue: 220 / 255)))
+                            
                     }
                 
             }.onTapGesture {
@@ -74,6 +78,10 @@ struct View_Login: View {
             .navigationBarHidden(true).navigationBarBackButtonHidden(true)
     }
 
+    func populate(){
+        FirebaseDB.populate()
+    }
+    
      func login() {
          model_Auth.login(email: email, password: password) { result in
              if result {
