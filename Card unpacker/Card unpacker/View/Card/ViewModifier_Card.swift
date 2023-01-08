@@ -25,8 +25,9 @@ struct ViewModifier_Card: ViewModifier, AnimatableModifier {
                 shape.fill()
                 shape.strokeBorder(lineWidth: 1)
             }
+            content.opacity(animateable < 90 ? 1 : 0)
         }
-        .rotationEffect(.degrees(animateable))
+        .rotation3DEffect(.degrees(animateable),axis: (0,1,0))
     }
 }
 
