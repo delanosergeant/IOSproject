@@ -64,7 +64,7 @@ class FirebaseDB: ObservableObject{
         var cards: Array<Card> = []
         let random = Int.random(in: 1...100)
         var rare:String = "nil"
-        var random: Int = 0
+        var randomCard: Int = 0
         var count:Int = 0
         
         switch(random)
@@ -72,17 +72,17 @@ class FirebaseDB: ObservableObject{
             //RRR
             case 1...10:
                 rare = "RRR"
-                random = Int.random(in: 1...10)
+                randomCard = Int.random(in: 1...10)
                 break
             //RR
             case 11...40:
                 rare = "RR"
-                random = Int.random(in: 1...30)
+                randomCard = Int.random(in: 1...30)
                 break
             //R
             default:
                 rare = "R"
-                random = Int.random(in: 1...65)
+                randomCard = Int.random(in: 1...65)
                 break
         }
         
@@ -106,8 +106,6 @@ class FirebaseDB: ObservableObject{
                     }
                 }
             }
-        
-        
         
         cards.shuffle()
         return cards
