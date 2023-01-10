@@ -25,6 +25,7 @@ struct View_Card_Part: View{
     
     var body: some View{
         Form{
+            
             Section(header: Text(card.cards.name)){
                 Text(card.cards.rarity)
                 Text(String(card.cards.grade))

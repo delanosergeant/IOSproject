@@ -55,7 +55,6 @@
 		F0A0CA59296A0E4900FADDDF /* View_Card_Overview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A0CA58296A0E4900FADDDF /* View_Card_Overview.swift */; };
 		F0A0CA5B296A102800FADDDF /* View_Card_Opener.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A0CA5A296A102800FADDDF /* View_Card_Opener.swift */; };
 		F0A0CA5D296A106500FADDDF /* Class_Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A0CA5C296A106500FADDDF /* Class_Card.swift */; };
-		F0A0CA5F296A2DE500FADDDF /* Class_Pack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A0CA5E296A2DE500FADDDF /* Class_Pack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,7 +99,6 @@
 		F0A0CA58296A0E4900FADDDF /* View_Card_Overview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View_Card_Overview.swift; sourceTree = "<group>"; };
 		F0A0CA5A296A102800FADDDF /* View_Card_Opener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View_Card_Opener.swift; sourceTree = "<group>"; };
 		F0A0CA5C296A106500FADDDF /* Class_Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class_Card.swift; sourceTree = "<group>"; };
-		F0A0CA5E296A2DE500FADDDF /* Class_Pack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class_Pack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,7 +264,6 @@
 			isa = PBXGroup;
 			children = (
 				F0A0CA5C296A106500FADDDF /* Class_Card.swift */,
-				F0A0CA5E296A2DE500FADDDF /* Class_Pack.swift */,
 				F01054EB296B12540003080A /* Struct_Cardview.swift */,
 				F01054ED296B15070003080A /* struct_PackOpening.swift */,
 			);
@@ -490,7 +487,6 @@
 				F0A0CA572968B3A300FADDDF /* View_Register.swift in Sources */,
 				F0A0CA5B296A102800FADDDF /* View_Card_Opener.swift in Sources */,
 				F01054F7296B67C90003080A /* AspectRatioVGrid.swift in Sources */,
-				F0A0CA5F296A2DE500FADDDF /* Class_Pack.swift in Sources */,
 				F09458F0296753630049B934 /* Card_unpackerApp.swift in Sources */,
 				F0A0CA552968B23C00FADDDF /* View_Login.swift in Sources */,
 			);

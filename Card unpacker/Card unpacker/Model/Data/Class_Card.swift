@@ -9,7 +9,7 @@ import Foundation
 import FirebaseFirestoreSwift
 
 
-class Card : Codable{
+struct Card : Codable{
     
     private(set) var name: String
     private(set) var grade: Int
@@ -34,7 +34,3 @@ class Card : Codable{
        }
 }
 
-struct collection<CardSet>{
-    // holds all cards of  set
-    private(set) var Cardlist: Array<Card> = []
-}

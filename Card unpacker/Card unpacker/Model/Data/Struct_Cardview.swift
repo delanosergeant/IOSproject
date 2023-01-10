@@ -10,7 +10,7 @@ import Foundation
 struct CardView<CardContent>: Identifiable{
     
     let id: UUID
-    let cards: CardContent
+    var cards: CardContent
     
     var isFaceUp:Bool
     
@@ -18,5 +18,6 @@ struct CardView<CardContent>: Identifiable{
         self.id = id
         self.cards = cards
         self.isFaceUp = isFaceUp
+        
     }
 }

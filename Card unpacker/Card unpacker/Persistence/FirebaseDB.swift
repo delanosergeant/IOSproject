@@ -51,7 +51,6 @@ class FirebaseDB: ObservableObject{
             switch result {
                 case .success(let success):
                     card = success
-                    print(card.name + " - " + rarity)
                 case .failure(let error):
                     // A `City` value could not be initialized from the DocumentSnapshot.
                     print("Error decoding card: \(error)")

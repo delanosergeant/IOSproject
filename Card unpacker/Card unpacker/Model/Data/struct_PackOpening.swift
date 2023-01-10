@@ -9,11 +9,11 @@ import Foundation
 
 struct PackOpening  {
     
-    var cardList: [CardView<Card>] = []
+    private(set) var cardList: [CardView<Card>] = []
     
     init(cardContent: Array<Card>){
         for item in cardContent{
-            cardList.append(CardView(id: UUID(), isFaceUp: true, cards: item))
+            cardList.append(CardView(id: UUID(), isFaceUp: false, cards: item))
         }
     }
     
