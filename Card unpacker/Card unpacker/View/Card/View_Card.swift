@@ -18,12 +18,13 @@ struct View_Card: View {
     var body: some View {
         GeometryReader{geometry in
             ZStack{
-                Text(card.cards.name)
+                Text("Rarity: " + self.card.cards.rarity)
                     .animation(
                         .linear(duration: 1)
                         .repeatForever(autoreverses: false)
                         .delay(0.5)
                     )
+                    
             }.MakeCard(isFaceUp: card.isFaceUp)
         }.aspectRatio(2/3,contentMode: .fit)
     }

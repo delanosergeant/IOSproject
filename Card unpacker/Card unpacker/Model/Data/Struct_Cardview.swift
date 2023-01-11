@@ -7,10 +7,11 @@
 
 import Foundation
 
-struct CardView<CardContent>: Identifiable{
+struct CardView<CardContent>: Identifiable where CardContent: Card {
     
     let id: UUID
     var cards: CardContent
+    
     
     var isFaceUp:Bool
     

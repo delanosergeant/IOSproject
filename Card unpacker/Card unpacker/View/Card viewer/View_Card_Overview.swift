@@ -13,31 +13,40 @@ struct View_Card_Overview: View {
     
     var body: some View {
         NavigationView{
-                ForEach (model.cards){
-                    View_Card_Part(card: $0)
+            ScrollView{
+                Form{
+                    Section(header: Text("card.cards.name")){
+                        Text("card.cards.rarity")
+                        Text(String("card.cards.grade"))
+                        Text("card.cards.nation")
+                        
+                        /*ForEach (model.cards){
+                            View_Card_Part(card: $0)
+                        }*/
+                    }
                 }
+            }
         }.navigationTitle("Card list")
     }
 }
-
-struct View_Card_Part: View{
-    var card: CardView<Card>
-    
-    var body: some View{
-        Form{
+    struct View_Card_Part: View{
+        var card: CardView<Card>
+        
+        var body: some View{
+          
+                Section(header: Text(card.cards.name)){
+                    Text(card.cards.rarity)
+                    Text(String(card.cards.grade))
+                    Text(card.cards.nation)
+                }
             
-            Section(header: Text(card.cards.name)){
-                Text(card.cards.rarity)
-                Text(String(card.cards.grade))
-                Text(card.cards.nation)
-            }
         }
     }
-}
     
-
-struct View_Card_Overview_Previews: PreviewProvider {
-    static var previews: some View {
-        View_Card_Overview()
+    
+    struct View_Card_Overview_Previews: PreviewProvider {
+        static var previews: some View {
+            View_Card_Overview()
+        }
     }
-}
+

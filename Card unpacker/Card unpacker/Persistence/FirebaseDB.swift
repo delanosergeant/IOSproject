@@ -25,7 +25,7 @@ class FirebaseDB: ObservableObject{
            }
        }
     
-    func getRandomCard(rarity:String, set: String) -> Card{
+    func getRandomCard(rarity:String, set: String, completion: @escaping (Card)-> Void){
         var card: Card = Card(name: "", grade: 0, text: "", nation: "", rarity: "")
         var doc: [String : Any]
         var random: Int
@@ -55,9 +55,10 @@ class FirebaseDB: ObservableObject{
                     // A `City` value could not be initialized from the DocumentSnapshot.
                     print("Error decoding card: \(error)")
                 }
+                print (card.name)
+                
+                completion(card)
             }
-        
-        return card
     }
     
     func getOnePack(set:String) -> Array<Card>{
@@ -89,16 +90,21 @@ class FirebaseDB: ObservableObject{
         //one pack holds 5 commons and 1 rare
         for _ in 1...5
         {
-            cards.append(self.getRandomCard(rarity: "C", set: set))
+            self.getRandomCard(rarity: "C", set: set){result in
+                cards.append(result)
+            }
         }
         
-        cards.append(self.getRandomCard(rarity: rare, set: set))
+        self.getRandomCard(rarity: rare, set: set){result in
+            
+            cards.append(result)
+        }
         
         cards.shuffle()
         return cards
     }
     
-    func getCards(set:String)-> Array<Card>{
+    func getCards(set:String, completion: @escaping (Array<Card>) -> Void ){
         var cards: Array<Card> = []
         
         let connC = Firestore.firestore().collection("cardlist").document(set).collection("C")
@@ -107,17 +113,18 @@ class FirebaseDB: ObservableObject{
                 if let snapshotDocuments = QuerySnapshot?.documents{
                     for document in snapshotDocuments{
                         do{
-                                let card = try document.data(as: Card.self)
-                                cards.append(card)
-                                print(card.name)
+                            let card = try document.data(as: Card.self)
+                            cards.append(card)
                         } catch let error as NSError{
                             print("error: \(error)")
                         }
                     }
+                    
+                    completion(cards)
                 }
             }
         
-        return cards
+        
     }
     
     /*static func populate(){

@@ -7,15 +7,11 @@
 
 import Foundation
 
-struct PackOpening  {
+struct PackOpening{
     
-    private(set) var cardList: [CardView<Card>] = []
+    var cardList: [CardView<Card>] = []
     
-    init(cardContent: Array<Card>){
-        for item in cardContent{
-            cardList.append(CardView(id: UUID(), isFaceUp: false, cards: item))
-        }
-    }
+    init(){}
     
     
     mutating func flip(_ card: CardView<Card>){
@@ -24,7 +20,7 @@ struct PackOpening  {
         guard !cardList[cardIndex].isFaceUp else {
             return
         }
-        
+        print(cardList[cardIndex].cards.name)
         cardList[cardIndex].isFaceUp = true
         }
     }

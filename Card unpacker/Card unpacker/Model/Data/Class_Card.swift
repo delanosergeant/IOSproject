@@ -9,8 +9,9 @@ import Foundation
 import FirebaseFirestoreSwift
 
 
-struct Card : Codable{
+class Card : Codable, Identifiable, ObservableObject{
     
+    var id: UUID = UUID()
     private(set) var name: String
     private(set) var grade: Int
     private(set) var text: String
