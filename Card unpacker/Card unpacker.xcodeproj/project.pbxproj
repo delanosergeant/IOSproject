@@ -48,6 +48,7 @@
 		F094594D29675D580049B934 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F094594C29675D580049B934 /* FirebaseRemoteConfigSwift */; };
 		F094594F29675D580049B934 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F094594E29675D580049B934 /* FirebaseStorage */; };
 		F094595129675D580049B934 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = F094595029675D580049B934 /* FirebaseStorageCombine-Community */; };
+		F09E41712970C0E600A2947E /* DBT01.json in Resources */ = {isa = PBXBuildFile; fileRef = F09E41702970C0E500A2947E /* DBT01.json */; };
 		F0A0CA4C2968AC0900FADDDF /* Model_Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A0CA4B2968AC0800FADDDF /* Model_Auth.swift */; };
 		F0A0CA4F2968AD8400FADDDF /* FirebaseDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A0CA4E2968AD8400FADDDF /* FirebaseDB.swift */; };
 		F0A0CA552968B23C00FADDDF /* View_Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A0CA542968B23C00FADDDF /* View_Login.swift */; };
@@ -92,6 +93,7 @@
 		F094590A2967536C0049B934 /* Card_unpackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card_unpackerUITests.swift; sourceTree = "<group>"; };
 		F094590C2967536D0049B934 /* Card_unpackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card_unpackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F094591929675B300049B934 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "Card unpacker/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F09E41702970C0E500A2947E /* DBT01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DBT01.json; path = ../../../../../../Users/delanosergeant/Desktop/DBT01.json; sourceTree = "<group>"; };
 		F0A0CA4B2968AC0800FADDDF /* Model_Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model_Auth.swift; sourceTree = "<group>"; };
 		F0A0CA4E2968AD8400FADDDF /* FirebaseDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDB.swift; sourceTree = "<group>"; };
 		F0A0CA542968B23C00FADDDF /* View_Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View_Login.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				F0A0CA472968A88200FADDDF /* Model */,
 				F0A0CA462968A7F200FADDDF /* View */,
 				F09458EF296753630049B934 /* Card_unpackerApp.swift */,
+				F09E41702970C0E500A2947E /* DBT01.json */,
 				F09458F32967536B0049B934 /* Assets.xcassets */,
 				F094591929675B300049B934 /* GoogleService-Info.plist */,
 				F09458F52967536B0049B934 /* Preview Content */,
@@ -450,6 +453,7 @@
 				F09458F72967536B0049B934 /* Preview Assets.xcassets in Resources */,
 				F09458F42967536B0049B934 /* Assets.xcassets in Resources */,
 				F094591A29675B330049B934 /* GoogleService-Info.plist in Resources */,
+				F09E41712970C0E600A2947E /* DBT01.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

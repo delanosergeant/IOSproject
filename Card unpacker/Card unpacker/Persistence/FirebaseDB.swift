@@ -26,7 +26,7 @@ class FirebaseDB: ObservableObject{
        }
     
     func getRandomCard(rarity:String, set: String, completion: @escaping (Card)-> Void){
-        var card: Card = Card(name: "", grade: 0, text: "", nation: "", rarity: "")
+        var card: Card = Card(name: "", grade: 0, nation: "", rarity: "", setcode: "")
         var doc: [String : Any]
         var random: Int
         

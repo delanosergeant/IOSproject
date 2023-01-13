@@ -57,32 +57,27 @@ class ViewModel: ObservableObject {
     
     func generatePack(){
         model.cardList.removeAll()
-        model.cardList.append(CardView( isFaceUp: false, cards: Card(name: "test C", grade: 0, text: "test", nation: "test", rarity: "C")))
-        model.cardList.append(CardView( isFaceUp: false, cards: Card(name: "test C", grade: 0, text: "test", nation: "test", rarity: "C")))
-        model.cardList.append(CardView( isFaceUp: false, cards: Card(name: "test C", grade: 0, text: "test", nation: "test", rarity: "C")))
-        model.cardList.append(CardView( isFaceUp: false, cards: Card(name: "test C", grade: 0, text: "test", nation: "test", rarity: "C")))
-        model.cardList.append(CardView( isFaceUp: false, cards: Card(name: "test C", grade: 0, text: "test", nation: "test", rarity: "R")))
-        
         let random = Int.random(in: 1...100)
         
+        model.cardList.append(CardView<Card>(isFaceUp: false, cards: Card.RandomCard(rarity: "C")))
+        model.cardList.append(CardView<Card>(isFaceUp: false, cards: Card.RandomCard(rarity: "C")))
+        model.cardList.append(CardView<Card>(isFaceUp: false, cards: Card.RandomCard(rarity: "C")))
+        model.cardList.append(CardView<Card>(isFaceUp: false, cards: Card.RandomCard(rarity: "C")))
+        model.cardList.append(CardView<Card>(isFaceUp: false, cards: Card.RandomCard(rarity: "C")))
+        
         switch(random){
-        case 1:
-            model.cardList.append(CardView( isFaceUp: false, cards: Card(name: "test R", grade: 0, text: "test", nation: "test", rarity: "DSR")))
-            
-            break
-        case 2...12:
-            model.cardList.append(CardView( isFaceUp: false, cards: Card(name: "test RR", grade: 0, text: "test", nation: "test", rarity: "RRR")))
-            
-            break
-        case 13...50:
-            model.cardList.append(CardView( isFaceUp: false, cards: Card(name: "test RRR", grade: 0, text: "test", nation: "test", rarity: "RR")))
-            
-            break
-        default:
-            model.cardList.append(CardView( isFaceUp: false, cards: Card(name: "test R", grade: 0, text: "test", nation: "test", rarity: "R")))
-            
-            break
-        }
+               case 1...11:
+                        model.cardList.append(CardView<Card>(isFaceUp: false, cards: Card.RandomCard(rarity: "RRR")))
+                   
+                   break
+               case 12...50:
+                        model.cardList.append(CardView<Card>(isFaceUp: false, cards: Card.RandomCard(rarity: "RR")))
+                   
+                   break
+               default:
+                        model.cardList.append(CardView<Card>(isFaceUp: false, cards: Card.RandomCard(rarity: "R")))
+                   break
+               }
     }
 }
 

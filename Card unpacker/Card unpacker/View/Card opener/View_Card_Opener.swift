@@ -22,7 +22,7 @@ struct View_Card_Opener: View {
         VStack{
             VStack{
                 AspectRatioVGrid(
-                    Pack.cards, aspectRatio: 3/4, spacing:10){card in
+                    Pack.cards, aspectRatio: 9/10, spacing:5){card in
                         
                         View_Card(card: card)
                             .matchedGeometryEffect(id: card.id, in: cardSpace)
